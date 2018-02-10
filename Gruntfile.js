@@ -30,6 +30,12 @@ module.exports = function(grunt) {
           'build/mapify.css': 'src/mapify.scss'
         }
       }
+    },
+    datesuffix: {
+      distrename: {
+        file: 'dist/ninesplit-map.min.js',
+        date_format: 'yyyyMMddhhmmss'
+      }
     }
   });
 
@@ -37,6 +43,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks("grunt-date-suffix");
 
   grunt.registerTask('css-in-js', function() {
     var fs = require('fs');
@@ -51,7 +58,8 @@ module.exports = function(grunt) {
     'sass',
     'css-in-js',
     'browserify',
-    'uglify'
+    'uglify',
+    'datesuffix'
   ]);
 
 };
